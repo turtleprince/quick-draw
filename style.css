@@ -1,0 +1,64 @@
+body
+{
+    background-color: rgb(45, 185, 120);
+}
+
+h1
+{
+  font-family: 'Special Elite', fantasy;
+  color:rgb(38, 0, 255);
+  background-color: rgb(218, 137, 32);
+}
+
+#show_sketch
+{
+  float:right;
+}
+
+canvas 
+  {
+    border:5px solid black;
+    border-radius:20px;
+    margin-top:50px;
+    box-shadow:5px 5px 5px grey;
+    box-shadow: 4px 4px 40px #75ee12;
+    animation-name: rickroll;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+@keyframes rickroll {
+
+  from {box-shadow: 1px 1px 38px blue;}
+  to {box-shadow: 1px 1px 38px green;}
+
+}
+
+
+p, span
+  {
+    padding-top:20px;
+    font-family: 'Special Elite', fantasy;
+    font-size:25px;
+    
+  }
+
+
+  #score
+  {
+    margin: 10px;
+    float:left;
+    font-size: 50px;
+  }
+
+  
+  #timer
+  {
+    margin: 100px;
+    float: right;
+    font-size: 50px;
+  }
+
+  #sketch_name
+  {
+    color: red;
+  }
