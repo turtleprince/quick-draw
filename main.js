@@ -4,13 +4,29 @@ var timer_check = "";
 var answer = "";
 var sketch_drawn = "";
 
+
 var quick_draw = ["backpack","apple","car","fish","ball","snowflake","sock"];
 
-random_num = Math.floor(Math.random() * quick_draw.length +1) ;
+random_num = Math.floor(Math.random() * quick_draw.length ) ;
 
 sketch = quick_draw[random_num];
 
 document.getElementById("sketch_name").innerHTML = " Sketch to be drawn : " + sketch;
+
+
+
+function update_canvas(){
+
+    background("white");
+
+random_num = Math.floor(Math.random() * quick_draw.length ) ;
+
+sketch = quick_draw[random_num];
+
+document.getElementById("sketch_name").innerHTML = " Sketch to be drawn : " + sketch;
+
+
+}
 
 function preload(){
     
@@ -31,22 +47,34 @@ function draw(){
         line(pmouseX,pmouseY,mouseX,mouseY);
         
     }
+
+   check_sketch();
+    
 }
 
-var timeout = setTimeout(function(){yourFunction()},10000);
+//var timeout = setTimeout(function(){yourFunction()},10000);
 
-var interval = setInterval(function(){yourFunction()},1000);
+//var interval = setInterval(function(){yourFunction()},1000);
 
-function Timer(id, endtime) {
-    const clock = document.getElementById(id);
-    const timeinterval = setInterval(() => {
-      const t = getTimeRemaining(endtime);
-      clock.innerHTML = 'days: ' + t.days + '<br>' +
-                        'hours: '+ t.hours + '<br>' +
-                        'minutes: ' + t.minutes + '<br>' +
-                        'seconds: ' + t.seconds;
-      if (t.total <= 0) {
-        clearInterval(timeinterval);
-      }
-    },1000);
-  }
+
+function check_sketch(){
+    timer_counter = timer_counter +1;
+
+    document.getElementById("Timer").innerHTML = "Timer : " + timer_counter;
+
+    if (timer_counter>500){
+
+      timer_counter = 0;
+      timer_check = "finished";
+    }
+    if(timer_check == "finished" || answer == "set" )
+    {
+        timer_check = "";
+        answer = "";
+        update_canvas();
+    }
+
+  
+}
+
+
